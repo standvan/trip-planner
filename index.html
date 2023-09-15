@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/trip.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body class="light">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="25" viewBox="0 0 21 25" fill="none">
+                        <path
+                            d="M2.51285 14.3138L7.42839 14.1693L9.02104 10.7185C9.1915 10.3492 8.87382 9.9456 8.47681 10.0342C7.15859 10.3282 5.30331 10.8151 4.26172 11.3359C3.26156 11.836 2.51148 12.8675 2.08182 13.6566C1.91103 13.9703 2.15583 14.3243 2.51285 14.3138Z"
+                            fill="white" />
+                        <path
+                            d="M18.619 23.628L14.4042 16.2522C14.0338 15.604 13.1092 15.5743 12.6953 16.1956C11.4016 18.1376 9.60367 20.7833 8.76153 21.8359C7.69486 23.1693 6.53931 23.3915 6.09486 23.3359C4.87265 23.2804 2.0949 23.0693 0.761565 22.6693C-0.571768 22.2693 0.12166 21.4507 0.761565 21.1693C1.52536 20.8333 3.42823 20.2359 4.76157 19.8359C6.0949 19.436 7.0949 17.8915 7.42823 17.1693L12.4282 7.66919C13.706 5.05808 16.7282 -0.130812 18.5949 0.00252097C20.4616 0.135854 19.9282 2.16919 19.4282 3.16919L16.7571 8.98285C16.6528 9.20992 16.6367 9.46605 16.713 9.70401C17.6984 12.7776 19.5828 18.6717 20.0949 20.3359C20.5188 21.7134 19.918 22.9716 19.3468 23.709C19.1509 23.9619 18.7777 23.9057 18.619 23.628Z"
+                            fill="white" />
+                    </svg>
+                </div>
+                <span class="logo-text">Airtrav</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Things to do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="info">
+                <span>USD</span>
+                <span>FAQ</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.2364 15.085H4.2363V8.58476C4.2363 6.08467 6.23631 4.08459 8.73633 4.08459C11.2364 4.08459 13.2364 6.08467 13.2364 8.58476V15.085ZM15.2383 14.0851V8.58491C15.2383 5.51479 13.0983 2.9447 10.2383 2.26467V1.58465C10.2383 0.756192 9.56671 0.0845947 8.73828 0.0845947C7.90985 0.0845947 7.23828 0.756192 7.23828 1.58465V2.26467C4.36828 2.9447 2.23828 5.51479 2.23828 8.58491V14.0851L0.238281 16.0852V17.0852H17.2383V16.0852L15.2383 14.0851ZM8.73822 20.0847C9.84278 20.0847 10.7382 19.1892 10.7382 18.0846H6.73824C6.73824 19.1892 7.63366 20.0847 8.73822 20.0847Z"
+                        fill="#777E91" />
+                </svg>
+                <img src="./img/account.png" alt="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <header class="container-fluid">
+        <div class="row">
+            <div class="eliment">
+                <svg xmlns="http://www.w3.org/2000/svg" width="175" height="113" viewBox="0 0 175 113" fill="none">
+                    <path
+                        d="M1.38403 57.5728C10.1533 62.5371 46.14 75.5408 57.6532 61.9268C72.0448 44.9094 46.702 28.0236 34.0463 45.2667C21.3906 62.5097 57.2043 86.5727 76.3839 86.5727C108.384 86.5727 147.969 68.6774 154.884 57.5727"
+                        stroke="#FA8F54" stroke-width="1.5" stroke-dasharray="7 7" />
+                    <path
+                        d="M167.388 51.224C167.055 51.3395 166.694 51.3407 166.36 51.2273L162.578 49.9542L161.346 52.8539C161.292 52.9814 161.205 53.0923 161.094 53.1751C160.983 53.2579 160.851 53.3098 160.714 53.3254C160.576 53.341 160.437 53.3197 160.31 53.2638C160.183 53.2079 160.073 53.1193 159.992 53.0072L156.781 48.5854L153.776 48.5845C153.452 48.5842 153.135 48.4852 152.869 48.3007C152.602 48.1162 152.397 47.8548 152.283 47.5513C152.168 47.2479 152.148 46.9167 152.226 46.6018C152.304 46.2868 152.476 46.0031 152.719 45.7882L164.111 35.8335C164.329 35.6429 164.593 35.5146 164.877 35.4624C165.162 35.4102 165.455 35.436 165.725 35.537C165.996 35.6381 166.234 35.8106 166.415 36.0362C166.595 36.2618 166.711 36.5322 166.751 36.8185L168.453 49.5007C168.5 49.8665 168.42 50.2374 168.226 50.5512C168.032 50.8649 167.736 51.1025 167.388 51.224Z"
+                        fill="#3B71FE" />
+                    <path
+                        d="M160.881 53.287C160.723 53.3422 160.55 53.3448 160.39 53.2946C160.23 53.2443 160.09 53.1438 159.991 53.0079L156.549 48.2709C156.441 48.1233 156.389 47.9428 156.4 47.7607C156.412 47.5785 156.487 47.4062 156.612 47.2735L163.013 40.4897C163.141 40.3536 163.314 40.2678 163.5 40.2481C163.686 40.2283 163.873 40.2758 164.027 40.382C164.181 40.4881 164.292 40.6459 164.34 40.8268C164.387 41.0077 164.369 41.1996 164.287 41.3679L160.869 48.4256L161.4 52.4446C161.423 52.6172 161.388 52.7926 161.3 52.9429C161.212 53.0932 161.077 53.2099 160.915 53.2745C160.904 53.2792 160.892 53.2833 160.881 53.287Z"
+                        fill="#1A4ED3" />
+                </svg>
+            </div>
+            <div class="left col-6">
+                <div class="title">
+                    Travel Planning <br>
+                    Made <span>Easy</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="52" height="20" viewBox="0 0 53 20" fill="none">
+                        <path
+                            d="M1.5551 6.38859C1.99454 6.4627 2.41146 6.17026 2.48683 5.73527L2.4869 5.73482L2.48767 5.7307C2.4887 5.72512 2.49057 5.71526 2.49334 5.70139C2.49889 5.67364 2.50803 5.62998 2.52131 5.57269C2.54791 5.45793 2.59085 5.28963 2.65435 5.08584C2.78225 4.67533 2.98886 4.13605 3.30321 3.604C3.93141 2.54076 4.92115 1.59999 6.53728 1.59999C8.21947 1.59999 9.52006 2.59136 11.0821 3.82537L11.1653 3.89117C11.9821 4.53682 12.8799 5.24644 13.915 5.74571C14.7276 6.13764 15.6249 6.39994 16.6343 6.39994C17.6392 6.39994 18.5331 6.13994 19.3428 5.75089C20.3825 5.25135 21.2836 4.53905 22.1033 3.89117L22.1865 3.82537C23.7485 2.59136 25.0491 1.59999 26.7313 1.59999C28.4135 1.59999 29.7141 2.59136 31.2761 3.82537L31.3594 3.89117C32.1868 4.54518 33.0972 5.26482 34.1494 5.765C34.9513 6.14622 35.8356 6.39994 36.8284 6.39994C37.8166 6.39994 38.6975 6.14848 39.4966 5.7701C40.5534 5.26972 41.4671 4.5474 42.2973 3.89117L42.3806 3.82537C43.9426 2.59136 45.2432 1.59999 46.9254 1.59999C48.554 1.59999 49.6239 2.55501 50.3301 3.63485C50.6815 4.17223 50.9239 4.71578 51.0784 5.12827C51.1552 5.33323 51.2091 5.50249 51.2432 5.61798C51.2602 5.67564 51.2722 5.71963 51.2795 5.74768C51.2832 5.76169 51.2857 5.7717 51.2872 5.77741L51.2881 5.78133L51.2883 5.78218L51.2884 5.78254L51.2885 5.78282C51.3903 6.21227 51.824 6.47917 52.258 6.37911C52.6925 6.27893 52.9627 5.84888 52.8616 5.41857L52.0749 5.59995C52.8616 5.41857 52.8615 5.41825 52.8614 5.41791L52.8613 5.41714L52.8608 5.41528L52.8596 5.41023L52.8559 5.39495C52.8528 5.3825 52.8485 5.36555 52.8429 5.34441C52.8318 5.30215 52.8156 5.24302 52.7939 5.16943C52.7505 5.02241 52.6849 4.81668 52.593 4.57164C52.4104 4.08414 52.1194 3.4277 51.6861 2.7651C50.8228 1.44495 49.318 0 46.9254 0C44.6302 0 42.9144 1.3563 41.4564 2.50877L41.3732 2.57458C39.8111 3.80858 38.5106 4.79996 36.8284 4.79996C35.1462 4.79996 33.8456 3.80858 32.2836 2.57458L32.2003 2.50877C30.7423 1.3563 29.0265 0 26.7313 0C24.4361 0 22.7203 1.3563 21.2624 2.50877L21.1791 2.57458C19.6171 3.80858 18.3165 4.79996 16.6343 4.79996C14.9521 4.79996 13.6515 3.80858 12.0895 2.57458L12.0062 2.50877C10.5483 1.3563 8.83246 0 6.53728 0C4.13218 0 2.69864 1.45921 1.90885 2.79594C1.51422 3.46388 1.26316 4.12459 1.11065 4.61407C1.03394 4.86028 0.980982 5.06697 0.946738 5.21471C0.929594 5.28867 0.917075 5.34814 0.908568 5.3907C0.904313 5.41199 0.901057 5.42907 0.898723 5.44166L0.895903 5.45713L0.894992 5.46227L0.894659 5.46418L0.894523 5.46497C0.894463 5.46532 0.894406 5.46565 1.6907 5.59995L0.894406 5.46565C0.819513 5.9012 1.11531 6.31442 1.5551 6.38859Z"
+                            fill="url(#paint0_linear_73_1738)" />
+                        <path
+                            d="M2.48682 12.5352C2.41146 12.9702 1.99454 13.2626 1.5551 13.1885C1.11531 13.1144 0.819513 12.7011 0.894406 12.2656L1.6907 12.3999C0.894406 12.2656 0.894463 12.2653 0.894523 12.2649L0.894659 12.2641L0.894992 12.2622L0.895903 12.2571L0.898723 12.2416C0.901057 12.229 0.904313 12.2119 0.908568 12.1906C0.917075 12.1481 0.929594 12.0886 0.946738 12.0147C0.980982 11.8669 1.03394 11.6602 1.11065 11.414C1.26316 10.9245 1.51422 10.2638 1.90885 9.59588C2.69864 8.25915 4.13218 6.79994 6.53728 6.79994C8.83246 6.79994 10.5483 8.15624 12.0062 9.30871L12.0895 9.37451C13.6515 10.6085 14.9521 11.5999 16.6343 11.5999C18.3165 11.5999 19.6171 10.6085 21.1791 9.37451L21.2624 9.30871C22.7203 8.15624 24.4361 6.79994 26.7313 6.79994C29.0265 6.79994 30.7423 8.15624 32.2003 9.30871L32.2836 9.37451C33.8456 10.6085 35.1462 11.5999 36.8284 11.5999C38.5106 11.5999 39.8111 10.6085 41.3732 9.37451L41.4564 9.30871C42.9144 8.15624 44.6302 6.79994 46.9254 6.79994C49.318 6.79994 50.8228 8.24489 51.6861 9.56503C52.1194 10.2276 52.4104 10.8841 52.593 11.3716C52.6849 11.6166 52.7505 11.8224 52.7939 11.9694C52.8156 12.043 52.8318 12.1021 52.8429 12.1444C52.8485 12.1655 52.8528 12.1824 52.8559 12.1949L52.8596 12.2102L52.8608 12.2152L52.8613 12.2171L52.8614 12.2179C52.8615 12.2182 52.8616 12.2185 52.0749 12.3999L52.8616 12.2185C52.9627 12.6488 52.6925 13.0789 52.258 13.179C51.824 13.2791 51.3903 13.0122 51.2885 12.5828L51.2884 12.5825L51.2883 12.5821L51.2881 12.5813L51.2872 12.5774C51.2857 12.5716 51.2832 12.5616 51.2795 12.5476C51.2722 12.5196 51.2602 12.4756 51.2432 12.4179C51.2091 12.3024 51.1552 12.1332 51.0784 11.9282C50.9239 11.5157 50.6815 10.9722 50.3301 10.4348C49.6239 9.35495 48.554 8.39993 46.9254 8.39993C45.2432 8.39993 43.9426 9.3913 42.3806 10.6253L42.2973 10.6911C41.4671 11.3473 40.5533 12.0697 39.4966 12.57C38.6975 12.9484 37.8166 13.1999 36.8284 13.1999C35.8356 13.1999 34.9513 12.9462 34.1494 12.5649C33.0972 12.0648 32.1868 11.3451 31.3594 10.6911L31.2761 10.6253C29.7141 9.3913 28.4135 8.39993 26.7313 8.39993C25.0491 8.39993 23.7485 9.3913 22.1865 10.6253L22.1033 10.6911C21.2836 11.339 20.3825 12.0513 19.3428 12.5508C18.5331 12.9399 17.6392 13.1999 16.6343 13.1999C15.6249 13.1999 14.7276 12.9376 13.915 12.5457C12.8799 12.0464 11.9821 11.3368 11.1653 10.6911L11.0821 10.6253C9.52006 9.3913 8.21947 8.39993 6.53728 8.39993C4.92115 8.39993 3.93141 9.34069 3.30321 10.4039C2.98886 10.936 2.78225 11.4753 2.65435 11.8858C2.59085 12.0896 2.54791 12.2579 2.52131 12.3726C2.50803 12.4299 2.49889 12.4736 2.49334 12.5013C2.49057 12.5152 2.4887 12.5251 2.48767 12.5306L2.4869 12.5348L2.48682 12.5352Z"
+                            fill="url(#paint1_linear_73_1738)" />
+                        <path
+                            d="M2.4869 19.3347L2.48687 19.3349C2.41162 19.77 1.99462 20.0626 1.5551 19.9885C1.11531 19.9143 0.819513 19.5011 0.894406 19.0655L1.6907 19.1998C0.894406 19.0655 0.894463 19.0652 0.894523 19.0648L0.894659 19.0641L0.894992 19.0622L0.895903 19.057L0.898723 19.0415C0.901057 19.029 0.904313 19.0119 0.908568 18.9906C0.917075 18.948 0.929594 18.8886 0.946738 18.8146C0.980982 18.6669 1.03394 18.4602 1.11065 18.2139C1.26316 17.7245 1.51422 17.0638 1.90885 16.3958C2.69864 15.0591 4.13218 13.5999 6.53728 13.5999C8.83246 13.5999 10.5483 14.9562 12.0062 16.1086L12.0895 16.1745C13.6515 17.4085 14.9521 18.3998 16.6343 18.3998C18.3165 18.3998 19.6171 17.4085 21.1791 16.1745L21.2624 16.1086C22.7203 14.9562 24.4361 13.5999 26.7313 13.5999C29.0265 13.5999 30.7423 14.9562 32.2003 16.1087L32.2836 16.1745C33.8456 17.4085 35.1462 18.3998 36.8284 18.3998C38.5106 18.3998 39.8111 17.4085 41.3732 16.1745L41.4564 16.1087C42.9144 14.9562 44.6302 13.5999 46.9254 13.5999C49.318 13.5999 50.8228 15.0448 51.6861 16.365C52.1194 17.0276 52.4104 17.684 52.593 18.1715C52.6849 18.4166 52.7505 18.6223 52.7939 18.7693C52.8156 18.8429 52.8318 18.902 52.8429 18.9443C52.8485 18.9654 52.8528 18.9824 52.8559 18.9948L52.8596 19.0101L52.8608 19.0152L52.8613 19.017L52.8614 19.0178C52.8615 19.0181 52.8616 19.0184 52.0749 19.1998L52.8616 19.0184C52.9627 19.4488 52.6925 19.8788 52.258 19.979C51.824 20.079 51.3903 19.8121 51.2885 19.3827L51.2884 19.3824L51.2883 19.3821L51.2881 19.3812L51.2872 19.3773C51.2865 19.3747 51.2856 19.3712 51.2845 19.3669C51.2832 19.3617 51.2815 19.3552 51.2795 19.3476C51.2722 19.3195 51.2602 19.2755 51.2432 19.2179C51.2091 19.1024 51.1552 18.9331 51.0784 18.7282C50.9239 18.3157 50.6815 17.7721 50.3301 17.2347C49.6239 16.1549 48.554 15.1999 46.9254 15.1999C45.2432 15.1999 43.9426 16.1912 42.3806 17.4252L42.2973 17.491C41.4671 18.1473 40.5533 18.8696 39.4966 19.37C38.6975 19.7484 37.8166 19.9998 36.8284 19.9998C35.8356 19.9998 34.9513 19.7461 34.1494 19.3649C33.0972 18.8647 32.1868 18.1451 31.3594 17.491L31.2761 17.4252C29.7141 16.1912 28.4135 15.1999 26.7313 15.1999C25.0491 15.1999 23.7485 16.1912 22.1865 17.4252L22.1033 17.4911C21.2836 18.1389 20.3825 18.8512 19.3428 19.3508C18.5331 19.7398 17.6392 19.9998 16.6343 19.9998C15.6249 19.9998 14.7276 19.7375 13.915 19.3456C12.8799 18.8463 11.9821 18.1367 11.1654 17.4911L11.0821 17.4252C9.52006 16.1912 8.21947 15.1999 6.53728 15.1999C4.92115 15.1999 3.93141 16.1406 3.30321 17.2039C2.98886 17.7359 2.78225 18.2752 2.65435 18.6857C2.59085 18.8895 2.54791 19.0578 2.52131 19.1726C2.50803 19.2299 2.49889 19.2735 2.49334 19.3013C2.49057 19.3151 2.4887 19.325 2.48767 19.3306L2.4869 19.3347Z"
+                            fill="url(#paint2_linear_73_1738)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_73_1738" x1="26.8828" y1="8.5" x2="0.882813" y2="8.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0.421875" stop-color="#F5B318" />
+                                <stop offset="1" stop-color="#F5B318" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_73_1738" x1="26.8828" y1="8.5" x2="0.882813" y2="8.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0.421875" stop-color="#F5B318" />
+                                <stop offset="1" stop-color="#F5B318" stop-opacity="0" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_73_1738" x1="26.8828" y1="8.5" x2="0.882813" y2="8.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0.421875" stop-color="#F5B318" />
+                                <stop offset="1" stop-color="#F5B318" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="content">We make it easy to plan and book your next trip with
+                    a Day by Day itinerary.</span>
+                <div class="bar">
+                    Plan a trip
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                </div>
+                <div class="cussay">
+                    <span class="title">Our customer say</span>
+                    <div class="review">
+                        <div class="excellent">
+                            Excellent
+                            <svg xmlns="http://www.w3.org/2000/svg" width="106" height="18" viewBox="0 0 108 20"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9.88281 16.3684L5.29376 18.8904C4.6332 19.2534 3.86369 18.6624 3.99051 17.8894L4.86551 12.5567L1.15781 8.77883C0.620552 8.2314 0.91511 7.27307 1.65518 7.16066L6.78428 6.38159L9.07695 1.52568C9.40787 0.824774 10.3578 0.824774 10.6887 1.52568L12.9813 6.38159L18.1104 7.16066C18.8505 7.27307 19.1451 8.2314 18.6078 8.77883L14.9001 12.5567L15.7751 17.8894C15.9019 18.6624 15.1324 19.2534 14.4719 18.8904L9.88281 16.3684Z"
+                                    fill="#FFC83A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M31.8828 16.3684L27.2938 18.8904C26.6332 19.2534 25.8637 18.6624 25.9905 17.8894L26.8655 12.5567L23.1578 8.77883C22.6206 8.2314 22.9151 7.27307 23.6552 7.16066L28.7843 6.38159L31.0769 1.52568C31.4079 0.824774 32.3578 0.824774 32.6887 1.52568L34.9813 6.38159L40.1104 7.16066C40.8505 7.27307 41.1451 8.2314 40.6078 8.77883L36.9001 12.5567L37.7751 17.8894C37.9019 18.6624 37.1324 19.2534 36.4719 18.8904L31.8828 16.3684Z"
+                                    fill="#FFC83A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M53.8828 16.3684L49.2938 18.8904C48.6332 19.2534 47.8637 18.6624 47.9905 17.8894L48.8655 12.5567L45.1578 8.77883C44.6206 8.2314 44.9151 7.27307 45.6552 7.16066L50.7843 6.38159L53.0769 1.52568C53.4079 0.824774 54.3578 0.824774 54.6887 1.52568L56.9813 6.38159L62.1104 7.16066C62.8505 7.27307 63.1451 8.2314 62.6078 8.77883L58.9001 12.5567L59.7751 17.8894C59.9019 18.6624 59.1324 19.2534 58.4719 18.8904L53.8828 16.3684Z"
+                                    fill="#FFC83A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M75.8828 16.3684L71.2938 18.8904C70.6332 19.2534 69.8637 18.6624 69.9905 17.8894L70.8655 12.5567L67.1578 8.77883C66.6206 8.2314 66.9151 7.27307 67.6552 7.16066L72.7843 6.38159L75.0769 1.52568C75.4079 0.824774 76.3578 0.824774 76.6887 1.52568L78.9813 6.38159L84.1104 7.16066C84.8505 7.27307 85.1451 8.2314 84.6078 8.77883L80.9001 12.5567L81.7751 17.8894C81.9019 18.6624 81.1324 19.2534 80.4719 18.8904L75.8828 16.3684Z"
+                                    fill="#FFC83A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M97.8828 16.3684L93.2938 18.8904C92.6332 19.2534 91.8637 18.6624 91.9905 17.8894L92.8655 12.5567L89.1578 8.77883C88.6206 8.2314 88.9151 7.27307 89.6552 7.16066L94.7843 6.38159L97.0769 1.52568C97.4079 0.824774 98.3578 0.824774 98.6887 1.52568L100.981 6.38159L106.11 7.16066C106.851 7.27307 107.145 8.2314 106.608 8.77883L102.9 12.5567L103.775 17.8894C103.902 18.6624 103.132 19.2534 102.472 18.8904L97.8828 16.3684Z"
+                                    stroke="#FFC83A" />
+                                <mask id="mask0_73_1756" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="88" y="1"
+                                    width="19" height="18">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M97.8828 16.3684L93.2938 18.8904C92.6332 19.2534 91.8637 18.6624 91.9905 17.8894L92.8655 12.5567L89.1578 8.77883C88.6206 8.2314 88.9151 7.27307 89.6552 7.16066L94.7843 6.38159L97.0769 1.52568C97.4079 0.824774 98.3578 0.824774 98.6887 1.52568L100.981 6.38159L106.11 7.16066C106.851 7.27307 107.145 8.2314 106.608 8.77883L102.9 12.5567L103.775 17.8894C103.902 18.6624 103.132 19.2534 102.472 18.8904L97.8828 16.3684Z"
+                                        fill="#FFC83A" />
+                                </mask>
+                                <g mask="url(#mask0_73_1756)">
+                                    <rect x="85.8828" width="12" height="20" fill="#FFC83A" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="number">
+                            <h1>4.7</h1>
+                            <span>out of 5 on 194 reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right col-6">
+                <picture>
+                    <source media="(max-width:960px)" srcset="./img/Frame38.png">
+                    <img src="./img/Frame37.png" alt="">
+                </picture>
+            </div>
+        </div>
+
+    </header>
+    <div class="partner">
+        <picture>
+            <img src="./img/partner.png" alt="">
+        </picture>
+    </div>
+    <div class="trip-planning">
+        <div class="heading">
+            <h1>Innovative Trip Planning</h1>
+            <p>Our Vision is to revolutionize the way people travel by <br>
+                introducing intelligent trip planning.</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">
+                    <i class="bi bi-brightness-low"></i>
+                </div>
+                <div class="content">
+                    Partner allows you to
+                    browse multiple carriers
+                    for travel.
+                </div>
+                <div class="more">
+                    Learn more
+                    <i class="bi bi-arrow-right-short"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="bi bi-brightness-low"></i>
+                </div>
+                <div class="content">
+                    Partner allows you to
+                    browse multiple carriers
+                    for travel.
+                </div>
+                <div class="more">
+                    Learn more
+                    <i class="bi bi-arrow-right-short"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="bi bi-brightness-low"></i>
+                </div>
+                <div class="content">
+                    Partner allows you to
+                    browse multiple carriers
+                    for travel.
+                </div>
+                <div class="more">
+                    Learn more
+                    <i class="bi bi-arrow-right-short"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="book-step">
+        <div class="create-trip">
+            <div class="main">
+                <h1>Create Your Trip</h1>
+                <p>Set up all trip</p>
+                <button>Plan a trip <i class="bi bi-arrow-right-short"></i></button>
+                <ul class="list">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="5" />
+                        </svg>
+                        <div class="li-con">
+                            <h2>Set up your account</h2>
+                            <p>Book your best exprience</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="5" />
+                        </svg>
+                        <div class="li-con">
+                            <h2>Set up your account</h2>
+                            <p>Book your best exprience</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="5" />
+                        </svg>
+                        <div class="li-con">
+                            <h2>Set up your account</h2>
+                            <p>Book your best exprience</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="price">
+                $50.00 / <span>per Trip</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="heading">
+                <h1>Book Easy 3 Steps</h1>
+                <p>Planning a trip is sometimes not easy. But Trip Plan will help you to manage time
+                    and budget for your journey! There are only 3 steps: Create an
+                    account, choose your destination city.</p>
+            </div>
+            <ul class="body">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                        <circle cx="10" cy="10.5" r="7.5" stroke="#3B71FE" stroke-width="5" />
+                    </svg>Set Up your Account
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                        <circle cx="10" cy="10.5" r="7.5" stroke="#3B71FE" stroke-width="5" />
+                    </svg>Respond to Private requests
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                        <circle cx="10" cy="10.5" r="7.5" stroke="#3B71FE" stroke-width="5" />
+                    </svg>Book your Trip
+                </li>
+            </ul>
+            <div class="footer">
+                <p>“Plan your trip with a 3-step trip plan. Check in out at a glance, select
+                    hotel rooms on the go, and create a packing list”</p>
+                <div class="profile">
+                    <div class="avatar">
+                        <img src="./img/avatar.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h3>Steve Jobs</h3>
+                        <p>Co-Founder and CEO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="trip-booking">
+        <div class="content">
+            <h1>Easy Trip Booking Website</h1>
+            <p>A new way to book travel online, saving you time. With trip, There are
+                no confusing spreadsheets or complicated searches. We just ask the
+                right questions, find the best deal for you, then book it.</p>
+            <div class="cards">
+                <div class="card">
+                    <img src="./img/brand-logo.png" alt="">
+                    <h3>Trip Advisor</h3>
+                    <p>Cheap Flights
+                        Amazing Experiences</p>
+                </div>
+                <div class="card">
+                    <img src="./img/brand-logo.png" alt="">
+                    <h3>Trip Advisor</h3>
+                    <p>Cheap Flights
+                        Amazing Experiences</p>
+                </div>
+                <div class="card">
+                    <img src="./img/brand-logo.png" alt="">
+                    <h3>Trip Advisor</h3>
+                    <p>Cheap Flights
+                        Amazing Experiences</p>
+                </div>
+                <div class="card">
+                    <img src="./img/brand-logo.png" alt="">
+                    <h3>Trip Advisor</h3>
+                    <p>Cheap Flights
+                        Amazing Experiences</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title">
+                <div class="avatar">
+                    <img src="./img/Mask-Group.png" alt="">
+                </div>
+                <div class="info">
+                    <h4>Hey! Welcome to Airtrav</h4>
+                    <p>Please Select to one</p>
+                </div>
+            </div>
+            <div class="element">
+                <img src="./img/card.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="how-it-words">
+        <div class="left">
+            <img src="./img/how-it-works.png" alt="">
+        </div>
+        <div class="right">
+            <h1>How does it works</h1>
+            <p>We find the absolute best prices on hotels & flights
+                then we pass these savings directly to you.</p>
+            <ul class="words">
+                <li>
+                    <div class="icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="info">
+                        <h1>Account</h1>
+                        <p>All the necessary information to create
+                            your account are below this.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="info">
+                        <h1>Account</h1>
+                        <p>All the necessary information to create
+                            your account are below this.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="info">
+                        <h1>Account</h1>
+                        <p>All the necessary information to create
+                            your account are below this.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="info">
+                        <h1>Account</h1>
+                        <p>All the necessary information to create
+                            your account are below this.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="services">
+        <h1>Airtrav Best Services</h1>
+        <p>Love by airtrave all services and amazine trip booked plane.</p>
+        <div class="cities">
+            <div class="city">
+                <i class="bi bi-building"></i>
+                <h1>100,000</h1>
+                <p>cities all over the world</p>
+            </div>
+            <div class="city">
+                <i class="bi bi-building"></i>
+                <h1>100,000</h1>
+                <p>cities all over the world</p>
+            </div>
+            <div class="city">
+                <i class="bi bi-building"></i>
+                <h1>100,000</h1>
+                <p>cities all over the world</p>
+            </div>
+            <div class="city">
+                <i class="bi bi-building"></i>
+                <h1>100,000</h1>
+                <p>cities all over the world</p>
+            </div>
+        </div>
+    </div>
+    <div class="our-features">
+        <h1>Discover our Features</h1>
+        <div class="features">
+            <div class="travel-plan">
+                <div class="header">
+                    <i class="bi bi-send"></i>
+                    <h1>Share Your Travel Plan</h1>
+                </div>
+                <div class="body">
+                    Ticket is an ultra-convenient way to buy your
+                    train or bus ticket online in seconds.
+                </div>
+            </div>
+            <div class="travel-plan">
+                <div class="header">
+                    <i class="bi bi-send"></i>
+                    <h1>Share Your Travel Plan</h1>
+                </div>
+                <div class="body">
+                    Ticket is an ultra-convenient way to buy your
+                    train or bus ticket online in seconds.
+                </div>
+            </div>
+            <div class="travel-plan">
+                <div class="header">
+                    <i class="bi bi-send"></i>
+                    <h1>Share Your Travel Plan</h1>
+                </div>
+                <div class="body">
+                    Ticket is an ultra-convenient way to buy your
+                    train or bus ticket online in seconds.
+                </div>
+            </div>
+            <div class="travel-plan">
+                <div class="header">
+                    <i class="bi bi-send"></i>
+                    <h1>Share Your Travel Plan</h1>
+                </div>
+                <div class="body">
+                    Ticket is an ultra-convenient way to buy your
+                    train or bus ticket online in seconds.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="trip-plan">
+        <div class="left">
+            <h1>Ready for 14 days <br>
+                Trip Plan</h1>
+            <p>The secret of good trip planning is to plan in advance, and we
+                can't get much more advanced than 14 days. </p>
+            <button>Go plan</button>
+        </div>
+        <div class="right">
+            <img src="./img/Frame-8.png" alt="">
+        </div>
+    </div>
+    <footer>
+        <div class="content">
+            <div class="box-1">
+                <div class="logo">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="25" viewBox="0 0 21 25" fill="none">
+                            <path
+                                d="M2.51285 14.3138L7.42839 14.1693L9.02104 10.7185C9.1915 10.3492 8.87382 9.9456 8.47681 10.0342C7.15859 10.3282 5.30331 10.8151 4.26172 11.3359C3.26156 11.836 2.51148 12.8675 2.08182 13.6566C1.91103 13.9703 2.15583 14.3243 2.51285 14.3138Z"
+                                fill="white" />
+                            <path
+                                d="M18.619 23.628L14.4042 16.2522C14.0338 15.604 13.1092 15.5743 12.6953 16.1956C11.4016 18.1376 9.60367 20.7833 8.76153 21.8359C7.69486 23.1693 6.53931 23.3915 6.09486 23.3359C4.87265 23.2804 2.0949 23.0693 0.761565 22.6693C-0.571768 22.2693 0.12166 21.4507 0.761565 21.1693C1.52536 20.8333 3.42823 20.2359 4.76157 19.8359C6.0949 19.436 7.0949 17.8915 7.42823 17.1693L12.4282 7.66919C13.706 5.05808 16.7282 -0.130812 18.5949 0.00252097C20.4616 0.135854 19.9282 2.16919 19.4282 3.16919L16.7571 8.98285C16.6528 9.20992 16.6367 9.46605 16.713 9.70401C17.6984 12.7776 19.5828 18.6717 20.0949 20.3359C20.5188 21.7134 19.918 22.9716 19.3468 23.709C19.1509 23.9619 18.7777 23.9057 18.619 23.628Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <span>Airtrav</span>
+                </div>
+                <p>Similarly, a loan taken out to buy a car may be secured by the car. The duration of the loan.</p>
+                <div class="box-2 d-flex d-sm-none">
+                    <h1>Services</h1>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                </div>
+                <div class="box-2 d-flex d-sm-none">
+                    <h1>Services</h1>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                </div>
+                <div class="box-2 d-flex d-sm-none">
+                    <h1>Services</h1>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                    <a href="">Trip planer</a>
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="Enter your email...">
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                </div>
+            </div>
+            <div class="box-2 d-none d-sm-flex">
+                <h1>Services</h1>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+            </div>
+            <div class="box-2 d-none d-sm-flex">
+                <h1>Services</h1>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+            </div>
+            <div class="box-2 d-none d-sm-flex">
+                <h1>Services</h1>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+                <a href="">Trip planer</a>
+            </div>
+
+        </div>
+        <div class="info">
+            <p>Copyright© 2021 UIHUT LLC. All rights reserved</p>
+            <div class="icons">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-facebook"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
